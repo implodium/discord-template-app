@@ -2,7 +2,6 @@ import 'reflect-metadata'
 import {Client} from "discordx";
 import {dirname, importx} from '@discordx/importer'
 import {Intents} from "discord.js";
-import * as dotenv from 'dotenv'
 
 initEnvironment()
 const client = getClient()
@@ -15,7 +14,7 @@ function isProduction() {
 
 function initEnvironment() {
     if (!isProduction()) {
-        dotenv.config({path: `${process.cwd()}/.env.dev`})
+        require('dotenv').config({path: `${process.cwd()}/.env.dev`})
     }
 }
 
